@@ -1,19 +1,18 @@
-
 import React from 'react';
 
-export const Ornament: React.FC<{ className?: string }> = ({ className }) => (
-  <svg viewBox="0 0 100 20" className={`w-32 h-auto ${className}`} fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0 10C20 10 30 0 50 0C70 0 80 10 100 10M0 10C20 10 30 20 50 20C70 20 80 10 100 10" stroke="#D4AF37" strokeWidth="1"/>
-    <circle cx="50" cy="10" r="3" fill="#D4AF37" />
-  </svg>
+export const GoldDivider: React.FC = () => (
+  <div className="flex items-center justify-center gap-4 my-8 opacity-80">
+    <div className="h-px bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent flex-grow"></div>
+    <svg width="40" height="40" viewBox="0 0 100 100" className="fill-[#D4AF37]">
+      <path d="M50 10 L60 40 L90 50 L60 60 L50 90 L40 60 L10 50 L40 40 Z" />
+    </svg>
+    <div className="h-px bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent flex-grow"></div>
+  </div>
 );
 
-export const HookahIcon: React.FC<{ className?: string }> = ({ className }) => (
-  <svg viewBox="0 0 100 150" className={className} fill="none" stroke="#D4AF37" strokeWidth="2" xmlns="http://www.w3.org/2000/svg">
-    <path d="M50 140 C30 140 20 120 20 100 C20 80 35 70 50 70 C65 70 80 80 80 100 C80 120 70 140 50 140 Z" fill="rgba(212, 175, 55, 0.1)" />
-    <rect x="47" y="20" width="6" height="50" />
-    <circle cx="50" cy="15" r="5" />
-    <path d="M53 40 C70 40 85 55 85 80" />
-    <path d="M85 80 L90 90" strokeWidth="4" />
+export const CornerDecor: React.FC<{ className?: string }> = ({ className }) => (
+  <svg viewBox="0 0 100 100" className={`w-24 h-24 absolute opacity-40 pointer-events-none ${className}`}>
+    <path d="M0 0 L100 0 L100 4 L4 4 L4 100 L0 100 Z" fill="#D4AF37" />
+    <circle cx="10" cy="10" r="4" fill="#D4AF37" />
   </svg>
 );

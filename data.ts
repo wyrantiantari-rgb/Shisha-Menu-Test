@@ -1,4 +1,3 @@
-
 import { MenuSection } from './types';
 
 export const MENU_DATA: MenuSection[] = [
@@ -10,16 +9,8 @@ export const MENU_DATA: MenuSection[] = [
       { name: "Herbaline Watermelon", price: "280K" }
     ],
     signatureMixes: [
-      { 
-        name: "Vanilla Breeze", 
-        price: "320K",
-        description: "Whiteline Vanilla & Whiteline Ice"
-      },
-      { 
-        name: "Watermelon Wave", 
-        price: "320K",
-        description: "Herbaline Watermelon & Whiteline Oloong Tea"
-      }
+      { name: "Vanilla Breeze", price: "320K", description: "Whiteline Vanilla & Whiteline Ice" },
+      { name: "Watermelon Wave", price: "320K", description: "Herbaline Watermelon & Whiteline Oloong Tea" }
     ]
   },
   {
@@ -29,16 +20,8 @@ export const MENU_DATA: MenuSection[] = [
       { name: "Al Fakher Two Apple", price: "295K" }
     ],
     signatureMixes: [
-      { 
-        name: "Minty Grapes", 
-        price: "335K",
-        description: "Sweet grape & cooling mint"
-      },
-      { 
-        name: "Minty Gum", 
-        price: "335K",
-        description: "Sweet Minty Aroma & Soft Flavor"
-      }
+      { name: "Minty Grapes", price: "335K", description: "Sweet grape & cooling mint" },
+      { name: "Minty Gum", price: "335K", description: "Sweet Minty Aroma & Soft Flavor" }
     ]
   },
   {
@@ -50,16 +33,8 @@ export const MENU_DATA: MenuSection[] = [
       { name: "Adalya Moscow Evening", price: "325K" }
     ],
     signatureMixes: [
-      { 
-        name: "Tipsy Lime", 
-        price: "405K",
-        description: "Blackline African Queen & Blackline Spicey Lime"
-      },
-      { 
-        name: "Evening Moscow", 
-        price: "405K",
-        description: "Adalya Moscow Evening & Blackline Booster"
-      }
+      { name: "Tipsy Lime", price: "405K", description: "Blackline African Queen & Blackline Spicey Lime" },
+      { name: "Evening Moscow", price: "405K", description: "Adalya Moscow Evening & Blackline Booster" }
     ]
   },
   {
@@ -71,16 +46,8 @@ export const MENU_DATA: MenuSection[] = [
       { name: "Darkside Supernova", price: "345K" }
     ],
     signatureMixes: [
-      { 
-        name: "Berry Kiss", 
-        price: "485K",
-        description: "Darkside Polar Cream & Tangiers Schnozzberry"
-      },
-      { 
-        name: "Wild Heart", 
-        price: "485K",
-        description: "Tangiers Cooling & Darkside Supernova"
-      }
+      { name: "Berry Kiss", price: "485K", description: "Darkside Polar Cream & Tangiers Schnozzberry" },
+      { name: "Wild Heart", price: "485K", description: "Tangiers Cooling & Darkside Supernova" }
     ]
   }
 ];
