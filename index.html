@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Umalas Signature - Sisha Menu</title>
+    <title>The Umalas Signature - Tropical Shisha Menu</title>
     <script type="importmap">
 {
   "imports": {
@@ -22,8 +22,10 @@
     <style>
       :root {
         --gold: #D4AF37;
-        --dark: #0f0f0f;
-        --chalkboard: #1a1a1a;
+        --dark: #050805;
+        --jungle: #0a120a;
+        --parrot-green: #56C129;
+        --beak-red: #F3274D;
       }
       body {
         background-color: var(--dark);
@@ -34,9 +36,10 @@
       #root {
         min-height: 100vh;
       }
-      .chalk-texture {
-        background-color: var(--chalkboard);
-        background-image: url("https://www.transparenttextures.com/patterns/dark-matter.png");
+      .tropical-texture {
+        background-color: var(--jungle);
+        background-image: linear-gradient(rgba(5, 8, 5, 0.9), rgba(5, 8, 5, 0.9)), 
+                          url("https://www.transparenttextures.com/patterns/leaf.png");
       }
       .font-serif { font-family: 'Playfair Display', serif; }
       .font-cursive { font-family: 'Great Vibes', cursive; }
@@ -67,11 +70,14 @@
       ::-webkit-scrollbar { width: 6px; }
       ::-webkit-scrollbar-track { background: var(--dark); }
       ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
+      
+      .parrot-glow {
+        box-shadow: 0 0 30px rgba(86, 193, 41, 0.1);
+      }
     </style>
   </head>
   <body>
     <div id="root"></div>
-    <!-- Explicitly load index.tsx as an ES module -->
     <script type="module" src="./index.tsx"></script>
   </body>
 </html>

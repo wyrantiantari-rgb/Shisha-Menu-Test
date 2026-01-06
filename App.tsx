@@ -4,59 +4,70 @@ import { GoldDivider, CornerDecor } from './components/Decorations';
 
 const App: React.FC = () => {
   return (
-    <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center p-4 md:p-10">
-      <div className="max-w-6xl w-full chalk-texture border-[12px] border-[#151515] shadow-[0_0_100px_rgba(0,0,0,0.9)] relative overflow-hidden rounded-sm">
+    <div className="min-h-screen bg-[#050805] flex items-center justify-center p-0 sm:p-4 md:p-10">
+      <div className="max-w-6xl w-full tropical-texture border-[1px] border-white/10 shadow-[0_0_100px_rgba(0,0,0,0.9)] relative overflow-hidden sm:rounded-lg">
         
-        {/* Decorative Corners */}
+        {/* Decorative Elements */}
         <CornerDecor className="top-0 left-0" />
         <CornerDecor className="top-0 right-0 rotate-90" />
-        <CornerDecor className="bottom-0 left-0 -rotate-90" />
-        <CornerDecor className="bottom-0 right-0 rotate-180" />
-
-        <div className="p-8 md:p-16 relative z-10">
-          {/* Header */}
-          <header className="text-center mb-16">
-            <p className="text-sm tracking-[0.5em] text-gray-500 uppercase font-medium mb-4">
-              Premium Sisha Experience
-            </p>
-            <h1 className="text-6xl md:text-8xl font-serif font-bold gold-gradient tracking-tighter uppercase mb-2">
+        
+        {/* Tropical Hero Header */}
+        <div className="relative h-64 md:h-96 overflow-hidden">
+          <img 
+            src="https://images.unsplash.com/photo-1552728089-57bdde30eba3?auto=format&fit=crop&q=80&w=1200" 
+            alt="Tropical Parrot"
+            className="w-full h-full object-cover opacity-60 grayscale-[0.2] sepia-[0.1]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#050805] via-transparent to-transparent"></div>
+          <div className="absolute inset-0 flex flex-col items-center justify-end pb-8">
+            <h1 className="text-6xl md:text-9xl font-serif font-bold gold-gradient tracking-tighter uppercase mb-[-10px] md:mb-[-20px] drop-shadow-2xl">
               Signature
             </h1>
-            <div className="flex items-center justify-center gap-4 mb-4">
-              <span className="h-px w-12 bg-[#D4AF37] opacity-50"></span>
-              <span className="font-cursive text-4xl gold-text">Menu</span>
-              <span className="h-px w-12 bg-[#D4AF37] opacity-50"></span>
+            <div className="flex items-center gap-4">
+               <span className="h-px w-8 bg-[#F3274D] opacity-80"></span>
+               <span className="font-cursive text-4xl gold-text">Shisha Menu</span>
+               <span className="h-px w-8 bg-[#F3274D] opacity-80"></span>
             </div>
-            <p className="font-serif italic text-gray-400 text-lg">The Umalas Signature</p>
-          </header>
+          </div>
+        </div>
+
+        <div className="p-6 md:p-16 relative z-10">
+          <div className="text-center mb-12">
+            <p className="text-[10px] tracking-[0.6em] text-[#56C129] uppercase font-bold mb-2">
+              The Umalas Experience
+            </p>
+            <p className="font-serif italic text-gray-400 text-lg">Bali's Premium Selection</p>
+          </div>
 
           <GoldDivider />
 
           {/* Menu Sections Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-16 mt-16">
             {MENU_DATA.map((section, sIdx) => (
-              <div key={sIdx} className="space-y-8 animate-fade-in">
+              <div key={sIdx} className="space-y-8 animate-fade-in" style={{ animationDelay: `${sIdx * 0.1}s` }}>
                 <div className="text-center">
-                  <h2 className="text-2xl font-serif font-bold gold-text tracking-widest uppercase mb-6 inline-block border-b border-gold pb-1 px-4">
+                  <h2 className="text-2xl font-serif font-bold gold-text tracking-widest uppercase mb-6 inline-block border-b-2 border-[#56C129] pb-2 px-6">
                     {section.title}
                   </h2>
                 </div>
 
-                <div className="space-y-6">
+                <div className="space-y-8">
                   {/* Single Flavors */}
                   <div>
-                    <h3 className="text-[10px] tracking-[0.3em] font-bold text-gray-600 uppercase mb-4 text-center">
-                      — Single Flavors —
+                    <h3 className="text-[9px] tracking-[0.4em] font-black text-gray-500 uppercase mb-5 text-center flex items-center justify-center gap-3">
+                      <span className="h-[1px] w-4 bg-gray-800"></span>
+                      Single Origins
+                      <span className="h-[1px] w-4 bg-gray-800"></span>
                     </h3>
-                    <div className="space-y-3">
+                    <div className="space-y-4">
                       {section.singleFlavors.map((item, iIdx) => (
-                        <div key={iIdx} className="flex items-center group">
-                          <span className="font-medium text-gray-200 group-hover:text-white transition-colors">
+                        <div key={iIdx} className="flex items-center group cursor-default">
+                          <span className="font-semibold text-gray-200 group-hover:text-[#56C129] transition-colors">
                             {item.name}
                           </span>
-                          <div className="leader-dots"></div>
+                          <div className="leader-dots border-white/5"></div>
                           <span className="gold-text font-bold text-sm tracking-tighter">
-                            IDR {item.price}
+                            {item.price}
                           </span>
                         </div>
                       ))}
@@ -65,24 +76,26 @@ const App: React.FC = () => {
 
                   {/* Signature Mixes */}
                   <div>
-                    <h3 className="text-[10px] tracking-[0.3em] font-bold text-gray-600 uppercase mb-4 text-center">
-                      — Signature Mixes —
+                    <h3 className="text-[9px] tracking-[0.4em] font-black text-gray-500 uppercase mb-5 text-center flex items-center justify-center gap-3">
+                       <span className="h-[1px] w-4 bg-[#F3274D]/30"></span>
+                       Exotic Mixes
+                       <span className="h-[1px] w-4 bg-[#F3274D]/30"></span>
                     </h3>
-                    <div className="space-y-5">
+                    <div className="space-y-6">
                       {section.signatureMixes.map((item, iIdx) => (
-                        <div key={iIdx} className="group">
+                        <div key={iIdx} className="group cursor-default">
                           <div className="flex items-center">
-                            <span className="font-bold text-white italic group-hover:gold-text transition-colors">
+                            <span className="font-bold text-white italic text-lg group-hover:gold-text transition-all duration-300">
                               {item.name}
                             </span>
-                            <div className="leader-dots border-gold opacity-30"></div>
+                            <div className="leader-dots border-gold opacity-20"></div>
                             <span className="gold-text font-bold text-sm tracking-tighter">
-                              IDR {item.price}
+                              {item.price}
                             </span>
                           </div>
                           {item.description && (
-                            <p className="text-[10px] text-gray-500 italic mt-1 font-medium leading-tight">
-                              ({item.description})
+                            <p className="text-[11px] text-[#56C129] italic mt-1 font-medium leading-tight opacity-80">
+                              {item.description}
                             </p>
                           )}
                         </div>
@@ -96,23 +109,27 @@ const App: React.FC = () => {
 
           {/* Footer Information */}
           <footer className="mt-24 text-center border-t border-white/5 pt-12">
-            <div className="flex flex-wrap justify-center gap-x-12 gap-y-4 text-[10px] tracking-widest text-gray-500 font-semibold uppercase">
-              <span>Handcrafted Flavors</span>
+            <div className="flex flex-wrap justify-center gap-x-12 gap-y-4 text-[10px] tracking-widest text-gray-400 font-bold uppercase">
+              <span className="hover:text-[#56C129] transition-colors">Tropical Ingredients</span>
               <span className="text-gold opacity-50">•</span>
-              <span>Premium Coal</span>
+              <span className="hover:text-[#F3274D] transition-colors">Natural Coals</span>
               <span className="text-gold opacity-50">•</span>
-              <span>Signature Experience</span>
+              <span className="hover:text-[#56C129] transition-colors">Bali Spirit</span>
             </div>
-            <div className="mt-8">
-               <p className="text-[9px] text-gray-700 max-w-xs mx-auto">
-                 JALAN BUMBAK NO. 156, KEROBOKAN KUTA UTARA, BALI - ALL PRICES ARE SUBJECT TO 10% SERVICE CHARGE & 11% GOVERNMENT TAX
+            <div className="mt-10 mb-6">
+               <p className="text-[10px] text-gray-600 leading-relaxed max-w-sm mx-auto uppercase tracking-tighter opacity-60">
+                 Jalan Bumbak No. 156, Kerobokan Kuta Utara, Bali<br/>
+                 Prices exclusive of 10% service & 11% gov tax
                </p>
+            </div>
+            <div className="inline-block px-4 py-1 border border-gold/20 rounded-full">
+               <span className="text-[8px] gold-text tracking-[0.3em] font-bold">UMALAS SIGNATURE EST. 2024</span>
             </div>
           </footer>
         </div>
 
-        {/* Atmosphere Overlay */}
-        <div className="absolute inset-0 pointer-events-none bg-gradient-to-tr from-black/40 via-transparent to-black/40"></div>
+        {/* Ambience Overlay */}
+        <div className="absolute inset-0 pointer-events-none bg-gradient-to-tr from-[#050805]/80 via-transparent to-[#050805]/40"></div>
       </div>
     </div>
   );
