@@ -2,7 +2,7 @@ import { MenuSection } from './types';
 
 export const MENU_DATA: MenuSection[] = [
   {
-    title: "MILD & FRUITY",
+    title: "ULTRA LIGHT",
     singleFlavors: [
       { name: "Whiteline Vanilla", price: "280K" },
       { name: "Whiteline Oolong Tea", price: "280K" },
@@ -14,7 +14,7 @@ export const MENU_DATA: MenuSection[] = [
     ]
   },
   {
-    title: "MINTY & SWEET",
+    title: "LIGHT",
     singleFlavors: [
       { name: "Whiteline Mint", price: "295K" },
       { name: "Al Fakher Two Apple", price: "295K" }
@@ -25,7 +25,7 @@ export const MENU_DATA: MenuSection[] = [
     ]
   },
   {
-    title: "BALANCED & WARM",
+    title: "MEDIUM",
     singleFlavors: [
       { name: "Blackline African Queen", price: "325K" },
       { name: "Blackline Spicey Lime", price: "325K" },
@@ -38,7 +38,7 @@ export const MENU_DATA: MenuSection[] = [
     ]
   },
   {
-    title: "BOLD & STRONG",
+    title: "BOLD STRONG",
     singleFlavors: [
       { name: "Tangiers Cooling", price: "380K" },
       { name: "Tangiers Schnozzberry", price: "380K" },

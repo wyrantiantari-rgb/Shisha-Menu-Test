@@ -1,135 +1,98 @@
 import React from 'react';
 import { MENU_DATA } from './data';
-import { GoldDivider, CornerDecor } from './components/Decorations';
 
 const App: React.FC = () => {
   return (
-    <div className="min-h-screen bg-[#050805] flex items-center justify-center p-0 sm:p-4 md:p-10">
-      <div className="max-w-6xl w-full tropical-texture border-[1px] border-white/10 shadow-[0_0_100px_rgba(0,0,0,0.9)] relative overflow-hidden sm:rounded-lg">
+    <div className="min-h-screen bg-[#0D0D0D] text-white flex flex-col items-center">
+      <div className="w-full max-w-4xl px-8 py-16 animate-fade-in">
         
-        {/* Decorative Elements */}
-        <CornerDecor className="top-0 left-0" />
-        <CornerDecor className="top-0 right-0 rotate-90" />
-        
-        {/* Tropical Hero Header */}
-        <div className="relative h-64 md:h-96 overflow-hidden">
-          <img 
-            src="https://images.unsplash.com/photo-1552728089-57bdde30eba3?auto=format&fit=crop&q=80&w=1200" 
-            alt="Tropical Parrot"
-            className="w-full h-full object-cover opacity-60 grayscale-[0.2] sepia-[0.1]"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#050805] via-transparent to-transparent"></div>
-          <div className="absolute inset-0 flex flex-col items-center justify-end pb-8">
-            <h1 className="text-6xl md:text-9xl font-serif font-bold gold-gradient tracking-tighter uppercase mb-[-10px] md:mb-[-20px] drop-shadow-2xl">
-              Signature
-            </h1>
-            <div className="flex items-center gap-4">
-               <span className="h-px w-8 bg-[#F3274D] opacity-80"></span>
-               <span className="font-cursive text-4xl gold-text">Shisha Menu</span>
-               <span className="h-px w-8 bg-[#F3274D] opacity-80"></span>
+        {/* Header Section */}
+        <header className="text-center mb-12">
+          <h2 className="text-[#D4AF37] font-serif text-sm tracking-[0.3em] uppercase mb-1">
+            The Umalas Signature
+          </h2>
+          <h1 className="text-[#D4AF37] font-serif text-6xl md:text-7xl font-bold tracking-tight uppercase">
+            SISHA MENU
+          </h1>
+          
+          {/* Diamond Ornament Divider */}
+          <div className="flex items-center justify-center mt-8 space-x-4">
+            <div className="h-[1px] w-32 bg-gradient-to-l from-[#D4AF37] to-transparent"></div>
+            <div className="flex items-center rotate-45 border border-[#D4AF37] p-[2px]">
+               <div className="w-2 h-2 bg-[#D4AF37]"></div>
             </div>
+            <div className="h-[1px] w-32 bg-gradient-to-r from-[#D4AF37] to-transparent"></div>
           </div>
-        </div>
+        </header>
 
-        <div className="p-6 md:p-16 relative z-10">
-          <div className="text-center mb-12">
-            <p className="text-[10px] tracking-[0.6em] text-[#56C129] uppercase font-bold mb-2">
-              The Umalas Experience
-            </p>
-            <p className="font-serif italic text-gray-400 text-lg">Bali's Premium Selection</p>
-          </div>
+        {/* Main Content Grid (Quadrants) */}
+        <div className="relative grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16 mt-16 px-4">
+          
+          {/* Vertical Divider Line (Desktop only) */}
+          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-[1px] opacity-40 bg-repeat-y" 
+               style={{ backgroundImage: 'linear-gradient(to bottom, #D4AF37 50%, transparent 50%)', backgroundSize: '1px 8px' }}></div>
+          
+          {/* Horizontal Divider Line (Desktop only) */}
+          <div className="hidden md:block absolute top-[47%] left-0 right-0 h-[1px] opacity-40 bg-repeat-x"
+               style={{ backgroundImage: 'linear-gradient(to right, #D4AF37 50%, transparent 50%)', backgroundSize: '8px 1px' }}></div>
 
-          <GoldDivider />
+          {MENU_DATA.map((section, sIdx) => (
+            <div key={sIdx} className="space-y-8">
+              <h3 className="text-[#D4AF37] font-serif text-3xl font-bold tracking-wider uppercase mb-6">
+                {section.title}
+              </h3>
 
-          {/* Menu Sections Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-16 mt-16">
-            {MENU_DATA.map((section, sIdx) => (
-              <div key={sIdx} className="space-y-8 animate-fade-in" style={{ animationDelay: `${sIdx * 0.1}s` }}>
-                <div className="text-center">
-                  <h2 className="text-2xl font-serif font-bold gold-text tracking-widest uppercase mb-6 inline-block border-b-2 border-[#56C129] pb-2 px-6">
-                    {section.title}
-                  </h2>
-                </div>
-
-                <div className="space-y-8">
-                  {/* Single Flavors */}
-                  <div>
-                    <h3 className="text-[9px] tracking-[0.4em] font-black text-gray-500 uppercase mb-5 text-center flex items-center justify-center gap-3">
-                      <span className="h-[1px] w-4 bg-gray-800"></span>
-                      Single Origins
-                      <span className="h-[1px] w-4 bg-gray-800"></span>
-                    </h3>
-                    <div className="space-y-4">
-                      {section.singleFlavors.map((item, iIdx) => (
-                        <div key={iIdx} className="flex items-center group cursor-default">
-                          <span className="font-semibold text-gray-200 group-hover:text-[#56C129] transition-colors">
-                            {item.name}
-                          </span>
-                          <div className="leader-dots border-white/5"></div>
-                          <span className="gold-text font-bold text-sm tracking-tighter">
-                            {item.price}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
+              {/* Single Flavor Section */}
+              <div className="space-y-4">
+                <p className="text-sm font-bold tracking-widest text-white uppercase mb-4">
+                  SINGLE FLAVOR:
+                </p>
+                {section.singleFlavors.map((flavor, fIdx) => (
+                  <div key={fIdx} className="flex justify-between items-baseline group">
+                    <span className="text-lg font-medium text-gray-200 group-hover:text-white transition-colors">
+                      {flavor.name}
+                    </span>
+                    <span className="text-[#D4AF37] font-bold text-sm ml-4 whitespace-nowrap">
+                      IDR {flavor.price}
+                    </span>
                   </div>
-
-                  {/* Signature Mixes */}
-                  <div>
-                    <h3 className="text-[9px] tracking-[0.4em] font-black text-gray-500 uppercase mb-5 text-center flex items-center justify-center gap-3">
-                       <span className="h-[1px] w-4 bg-[#F3274D]/30"></span>
-                       Exotic Mixes
-                       <span className="h-[1px] w-4 bg-[#F3274D]/30"></span>
-                    </h3>
-                    <div className="space-y-6">
-                      {section.signatureMixes.map((item, iIdx) => (
-                        <div key={iIdx} className="group cursor-default">
-                          <div className="flex items-center">
-                            <span className="font-bold text-white italic text-lg group-hover:gold-text transition-all duration-300">
-                              {item.name}
-                            </span>
-                            <div className="leader-dots border-gold opacity-20"></div>
-                            <span className="gold-text font-bold text-sm tracking-tighter">
-                              {item.price}
-                            </span>
-                          </div>
-                          {item.description && (
-                            <p className="text-[11px] text-[#56C129] italic mt-1 font-medium leading-tight opacity-80">
-                              {item.description}
-                            </p>
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
+                ))}
               </div>
-            ))}
-          </div>
 
-          {/* Footer Information */}
-          <footer className="mt-24 text-center border-t border-white/5 pt-12">
-            <div className="flex flex-wrap justify-center gap-x-12 gap-y-4 text-[10px] tracking-widest text-gray-400 font-bold uppercase">
-              <span className="hover:text-[#56C129] transition-colors">Tropical Ingredients</span>
-              <span className="text-gold opacity-50">•</span>
-              <span className="hover:text-[#F3274D] transition-colors">Natural Coals</span>
-              <span className="text-gold opacity-50">•</span>
-              <span className="hover:text-[#56C129] transition-colors">Bali Spirit</span>
+              {/* Signature Mixes Section */}
+              <div className="space-y-6 pt-2">
+                <p className="text-sm font-bold tracking-widest text-white uppercase mb-4">
+                  SIGNATURE MIXES:
+                </p>
+                {section.signatureMixes.map((mix, mIdx) => (
+                  <div key={mIdx} className="flex justify-between items-start group">
+                    <div className="flex flex-col pr-4">
+                      <span className="text-lg font-medium text-gray-200 group-hover:text-white transition-colors">
+                        {mix.name}
+                      </span>
+                      {mix.description && (
+                        <span className="text-[#D4AF37] italic text-xs mt-1 leading-tight">
+                          ({mix.description})
+                        </span>
+                      )}
+                    </div>
+                    <span className="text-[#D4AF37] font-bold text-sm whitespace-nowrap mt-1">
+                      IDR {mix.price}
+                    </span>
+                  </div>
+                ))}
+              </div>
             </div>
-            <div className="mt-10 mb-6">
-               <p className="text-[10px] text-gray-600 leading-relaxed max-w-sm mx-auto uppercase tracking-tighter opacity-60">
-                 Jalan Bumbak No. 156, Kerobokan Kuta Utara, Bali<br/>
-                 Prices exclusive of 10% service & 11% gov tax
-               </p>
-            </div>
-            <div className="inline-block px-4 py-1 border border-gold/20 rounded-full">
-               <span className="text-[8px] gold-text tracking-[0.3em] font-bold">UMALAS SIGNATURE EST. 2024</span>
-            </div>
-          </footer>
+          ))}
         </div>
 
-        {/* Ambience Overlay */}
-        <div className="absolute inset-0 pointer-events-none bg-gradient-to-tr from-[#050805]/80 via-transparent to-[#050805]/40"></div>
+        {/* Footer Section */}
+        <footer className="mt-24 pt-12 text-center">
+          <p className="text-xs text-gray-400 tracking-wider max-w-sm mx-auto leading-relaxed">
+            Jalan Bumbak No. 156, Kerobokan Kuta Utara,<br />
+            Badung, Bali-80361
+          </p>
+        </footer>
       </div>
     </div>
   );
