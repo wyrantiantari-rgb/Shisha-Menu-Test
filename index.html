@@ -31,6 +31,9 @@
         color: #e5e5e5;
         margin: 0;
       }
+      #root {
+        min-height: 100vh;
+      }
       .chalk-texture {
         background-color: var(--chalkboard);
         background-image: url("https://www.transparenttextures.com/patterns/dark-matter.png");
@@ -68,5 +71,7 @@
   </head>
   <body>
     <div id="root"></div>
+    <!-- Explicitly load index.tsx as an ES module -->
+    <script type="module" src="./index.tsx"></script>
   </body>
 </html>
